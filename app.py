@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 
 # =========================
@@ -17,7 +17,7 @@ def standard(scores):
 # =========================
 # UI 標題
 # =========================
-st.set_page_config(page_title="公平評分排名系統", page_icon="🏆")
+st.set_page_config(page_title="評分排名系統", page_icon="🏆")
 st.title("🏆 公平評分排名系統")
 st.write("輸入評分後，系統會自動標準化並計算排名")
 
@@ -58,7 +58,7 @@ for rater in range(people):
     for target in range(people):
         with cols[target]:
             if rater == target:
-                st.write("X")
+                st.write("自己")
             else:
                 score = st.number_input(
                     f"{names[target]}",
@@ -109,23 +109,26 @@ if st.button("🔥 計算排名"):
     # 排序
     ranking = sorted(total.items(), key=lambda x: x[1], reverse=True)
 
-    st.subheader("🏆 排名結果")
+    st.subheader("從夯到拉銳評")
 
-    # 顯示排名（有趣版）
+    # 顯示排名
     for i, (name, score) in enumerate(ranking):
 
         if i == 0:
-            st.success(f"🏆 {name} 獲得 MVP！🔥（{score:.3f}）")
+            st.success(f"🏆 {name} 夯（{score:.3f}）")
             st.image("https://cdn-icons-png.flaticon.com/512/2583/2583344.png", width=120)
 
         elif i == 1:
-            st.info(f"🥈 {name} 表現優秀！（{score:.3f}）")
+            st.info(f"🥈 {name} 頂級（{score:.3f}）")
 
         elif i == 2:
-            st.warning(f"🥉 {name} 還不錯！（{score:.3f}）")
+            st.warning(f"🥉 {name} 人上人（{score:.3f}）")
+
+	elif i == 3:
+            st.warning(f"🥉 {name} NPC（{score:.3f}）")
 
         else:
-            st.write(f"{name} 再接再厲 💪（{score:.3f}）")
+            st.write(f"{name} 拉玩了💩 （{score:.3f}）")
 
     # 表格
     df = pd.DataFrame(ranking, columns=["姓名", "分數"])
