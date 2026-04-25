@@ -18,7 +18,7 @@ def standard(scores):
 # UI 標題
 # =========================
 st.set_page_config(page_title="評分排名系統", page_icon="🏆")
-st.title("🏆 公平評分排名系統")
+st.title("評分排名系統")
 st.write("輸入評分後，系統會自動標準化並計算排名")
 
 st.divider()
