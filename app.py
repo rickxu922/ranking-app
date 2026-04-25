@@ -124,7 +124,7 @@ if st.button("🔥 計算排名"):
         elif i == 2:
             st.warning(f"🥉 {name} 人上人（{score:.3f}）")
 
-	elif i == 3:
+        elif i == 3:
             st.warning(f"🥉 {name} NPC（{score:.3f}）")
 
         else:
