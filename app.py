@@ -58,7 +58,7 @@ for rater in range(people):
     for target in range(people):
         with cols[target]:
             if rater == target:
-                st.write("自己")
+                st.write("")
             else:
                 score = st.number_input(
                     f"{names[target]}",
