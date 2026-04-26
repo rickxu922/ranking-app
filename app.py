@@ -26,7 +26,7 @@ st.divider()
 # =========================
 # 輸入人數
 # =========================
-people = st.number_input("請輸入人數", min_value=2, max_value=10, value=4)
+people = st.number_input("請輸入人數", min_value=4, max_value=15, value=5)
 people = int(people)
 
 # =========================
